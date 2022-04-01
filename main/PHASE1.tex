@@ -1,0 +1,2510 @@
+\documentclass[]{article}
+\usepackage{graphicx}
+\usepackage[svgnames]{xcolor} 
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage{forest}
+\usepackage{tocloft}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage[many]{tcolorbox}
+\usepackage{listings }
+\usepackage[a4paper, total={6in, 8in} , top = 2cm,bottom = 4cm]{geometry}
+%\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{afterpage}
+\usepackage{amssymb}
+\usepackage{pdflscape}
+\usepackage{textcomp}
+\usepackage{xecolor}
+\usepackage{rotating}
+\usepackage[Kashida]{xepersian}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage{PTSerif} 
+\usepackage{seqsplit}
+\usepackage{changepage}
+
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{sectsty}
+
+\setcounter{secnumdepth}{0}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{blanchedalmond}{rgb}{1.0, 0.92, 0.8}
+\definecolor{brilliantlavender}{rgb}{0.96, 0.73, 1.0}
+ 
+\NewDocumentCommand{\codeword}{v}{
+\texttt{\textcolor{blue}{#1}}
+}
+\lstset{language=java,keywordstyle={\bfseries \color{blue}}}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\normalsize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+ \settextfont[BoldFont={XB Zar bold.ttf}]{XB Zar.ttf}
+
+
+\setlatintextfont[Scale=1.0,
+ BoldFont={LiberationSerif-Bold.ttf}, 
+ ItalicFont={LiberationSerif-Italic.ttf}]{LiberationSerif-Regular.ttf}
+
+
+
+
+
+\newcommand{\inputsample}[1]{
+    ~\\
+    \textbf{ورودی نمونه}
+    ~\\
+    \begin{tcolorbox}[breakable,boxrule=0pt]
+        \begin{latin}
+            \large{
+                #1
+            }
+        \end{latin}
+    \end{tcolorbox}
+}
+
+\newcommand{\outputsample}[1]{
+    ~\\
+    \textbf{خروجی نمونه}
+
+    \begin{tcolorbox}[breakable,boxrule=0pt]
+        \begin{latin}
+            \large{
+                #1
+            }
+        \end{latin}
+    \end{tcolorbox}
+}
+
+\newtcolorbox{mybox}[2][]{colback=red!5!white,
+colframe=red!75!black,fonttitle=\bfseries,
+colbacktitle=red!85!black,enhanced,
+attach boxed title to top center={yshift=-2mm},
+title=#2,#1}
+
+\newenvironment{changemargin}[2]{%
+\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{#1}%
+\setlength{\rightmargin}{#2}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{\parskip}%
+}%
+\item[]}{\end{list}}
+
+
+\definecolor{foldercolor}{RGB}{124,166,198}
+\definecolor{sectionColor}{HTML}{ff5e0e}
+\definecolor{subsectionColor}{HTML}{008575}
+
+\definecolor{listColor}{HTML}{00d3b9}
+
+\definecolor{umlrelcolor}{HTML}{3c78d8}
+
+\definecolor{subsubsectionColor}{HTML}{3c78d8}
+
+\defpersianfont\authorFont[Scale=0.9]{XB Zar bold.ttf}
+
+\defpersianfont\titr[Scale=1.5]{Lalezar-Regular.ttf}
+
+\defpersianfont\fehrest[Scale=1.2]{Lalezar-Regular.ttf}
+
+\defpersianfont\fehrestTitle[Scale=3.0]{Lalezar-Regular.ttf}
+
+\defpersianfont\fehrestContent[Scale=1.2]{XB Zar bold.ttf}
+
+
+\sectionfont{\color{sectionColor}}  % sets colour of sections
+\subsectionfont{\color{subsectionColor}}  % sets colour of sections
+\subsubsectionfont{\color{subsubsectionColor}}
+
+
+\renewcommand{\labelitemii}{$\circ$}
+
+
+\renewcommand{\baselinestretch}{1.1}
+
+
+\renewcommand{\contentsname}{فهرست}
+
+\renewcommand{\cfttoctitlefont}{\fehrestTitle}
+
+
+\renewcommand\cftsecfont{\color{sectionColor}\fehrestContent\selectfont}
+\renewcommand\cftsubsecfont{\color{subsectionColor}\fehrestContent\selectfont}
+\renewcommand\cftsubsubsecfont{\color{subsubsectionColor}\fehrestContent\selectfont}
+%\renewcommand{\cftsecpagefont}{\color{sectionColor}}
+
+\setlength{\parskip}{1.2pt}
+
+\begin{document}
+
+
+%%% title pages
+\begin{titlepage}
+\begin{center}
+
+\textbf{ \Huge{به نام خدا} }
+        
+\vspace{0.2cm}
+
+\includegraphics[width=0.4\textwidth]{sharif1.png}\\
+\vspace{0.2cm}
+\textbf{ \Huge{\emph درس برنامه‌سازی پیشرفته} }\\
+\vspace{0.25cm}
+\textbf{ \Large{ فاز اول پروژه} }
+\vspace{0.2cm}
+       
+ 
+      \large \textbf{دانشکده مهندسی کامپیوتر}\\\vspace{0.1cm}
+    \large   دانشگاه صنعتی شریف\\\vspace{0.2cm}
+       \large   ﻧﯿﻢ سال دوم 00-99 \\\vspace{0.10cm}
+      \noindent\rule[1ex]{\linewidth}{1pt}
+استاد:\\
+    \textbf{{دکتر محمدامین فضلی}}
+
+
+
+    \vspace{0.20cm}
+
+   مهلت ارسال:\\
+    \textbf{{24 اردیبهشت - }}
+    \textbf{{ساعت 23:59:59}}
+
+    \vspace{0.10cm}
+مسئول پروژه:\\
+    \textbf{\authorFont{امیرمهدی نامجو}}
+    
+        \vspace{0.10cm}
+مسئول فاز اول:\\
+    \textbf{\authorFont{عرشیا اخوان}}
+    
+        \vspace{0.10cm}
+طراحان فاز اول:\\
+    \textbf{\authorFont{سروش جهان‌زاد، متین شجاع، امیرصدرا عبدالهی، امیرمهدی کوششی، یاسمین گلزار، امیرحسین هادیان }}
+    
+        \vspace{0.05cm}
+مسئولین تنظیم مستند:\\
+    \textbf{\authorFont{سروش جهان‌زاد و پارسا محمدیان}}
+    
+
+\end{center}
+\end{titlepage}
+%%% title pages
+
+
+%%% header of pages
+\newpage
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\cfoot{\thepage}
+\lhead{فاز اول}
+\rhead{\includegraphics[width=0.1\textwidth]{sharif.png}\\
+دانشکده مهندسی کامپیوتر
+}
+\chead{پروژه برنامه‌سازی پیشرفته}
+%%% header of pages
+\renewcommand{\headrulewidth}{2pt}
+
+\KashidaOff
+
+
+
+\tableofcontents
+
+\newpage
+
+ \Large \textbf{\\\\
+}
+
+
+\section*{{\titr نکات قابل توجه}}
+\addcontentsline{toc}{section}{{\fehrestContent نکات قابل توجه}}
+\begin{itemize}
+\item
+پس از اتمام این فاز، در گیت خود یک تگ با ورژن \lr{"v1.0.0"} بزنید. در روز تحویل حضوری این tag بررسی خواهد شد و کدهای پس از آن نمره‌ای نخواهد گرفت. برای اطلاعات بیش‌تر در مورد شیوه ورژن‌گذاری، می‌توانید به
+ \href{https://semver.org/}{\textcolor{blue}{\underline{این لینک}}}
+ مراجعه کنید. البته برای این پروژه صرفا رعایت کردن همان ورژن گفته شده کافیست، اما خوب‌ است که با منطق ورژن‌بندی هم آشنا بشوید.
+
+\item
+در روز تحویل حضوری مشارکت تمام اعضای تیم در پروژه بررسی خواهد‌ شد و در صورت عدم مشارکت بعضی از اعضا، نمره‌ی ایشان برای آن فاز پروژه "صفر" لحاظ می‌گردد. مشارکت، با توجه به commit های افراد تیم در مخزن گیت‌هاب پروژه بررسی می‌شود.
+
+\item
+در هر فاز می‌توانید سه روز تاخیر به ازای کسر نمره داشته‌ باشید که به ازای هر روز آن، ۱۰ درصد از نمرهٔ آن فاز را از دست خواهید‌ داد. در مجموع سه‌فاز پروژه، سه روز تاخیر نیز بخشیده خواهد‌ شد.
+
+\item
+به ازای هر ساعتی که پروژه را زودتر تحویل دهید، ۱۵ دقیقه به مهلت تاخیر بدون کسر نمره شما اضافه خواهد‌ شد. این مقدار حداکثر یک روز خواهد‌ بود که در صورت ارسال ۴ روز زودتر از ددلاین به شما تعلق خواهد گرفت. \textbf{بنابراین ددلاین‌های پروژه تحت هیچ شرایطی تمدید نخواهد‌ شد.} توصیه می‌شود با برنامه‌ریزی مناسب به ددلاین‌های درس پایبند باشید.
+
+\item
+در صورت کشف تقلب از هریک از تیم‌ها، برای بار اول منفی نمرهٔ آن فاز برای آن تیم ثبت می‌شود و برای بار دوم، نمرهٔ منفی کل پروژه برای تیم لحاظ خواهد‌ شد که معادل مردود شدن در درس است.
+
+
+\item
+شما باید \textbf{حداقل} برای یکی از فرایندهای موجود در پروژه، \lr{Unit Test} بنویسید. همچنین برای \lr{code coverage} بالاتر از ۷۰ درصد، به صورت خطی با درصد \lr{coverage}، نمره‌ٔ امتیازی تعلق خواهد گرفت.
+
+\end{itemize}
+
+\newpage
+
+\section*{{\titr مقدمه}}
+\addcontentsline{toc}{section}{{\fehrestContent مقدمه}}
+
+\subsection*{{\titr اهداف پروژه}}
+
+\addcontentsline{toc}{subsection}{{\fehrestContent اهداف قابل توجه}}
+
+\begin{itemize}
+
+\item
+هدف این پروژه، طراحی یک بازی کارتی مشابه عنوان \lr{Yu-Gi-Oh!} است. فاز اول به شکل عمده به منطق بازی اختصاص دارد.
+
+
+\item
+در این فاز از پروژه، طراحی شی‌ءگرای بازی و جداسازی صحیح منطق بخش‌های مختلف از یکدیگر مورد نظر است.
+
+\item
+یکی از اهداف پروژه، آشنایی با برخی ابزارها و Pattern های استاندارد برنامه‌نویسی، مثل ابزار مدیریت و تعریف پروژه‌ٔ 
+\href{https://en.wikipedia.org/wiki/Apache_Maven}{\textcolor{blue}{\underline{\lr{Apache Maven}}}}، 
+است.
+
+\item
+آشنایی با سیستم مدیریت نسخه \lr{Git} و کار تیمی بر روی پروژه بر بستر یک مخزن \lr{Github}، یکی از اهداف مهم پروژه است. در این مورد توصیه می‌شود تغییرات خود را در دوره‌های کوتاه مدت \lr{commit} کنید.
+
+\end{itemize}
+
+\subsection*{{\titr کلیات پروژه}}
+\addcontentsline{toc}{subsection}{{\fehrestContent کلیات پروژه}}
+
+در این فاز، صرفا منطق پروژه، بدون پیاده‌سازی گرافیک یا معماری شبکهٔ آن، باید پیاده‌سازی شود. نحوهٔ ارتباط با کاربر نیز از طریق واسط کاربری کنسول است. توجه داشته باشید که در فاز سوم پروژه، باید سیستم را طبق یک معماری سرور-کلاینت طراحی کنید. در معماری اکثر بازی‌هایی که به این شکل انجام می‌شوند، منطق بازی در سرور و مستقل از واسط کاربری سمت کلاینت و کاربر است. هر چند برای فاز اول نیاز به این مسئله ندارید ولی خوب‌ است که از الآن طراحی خوبی داشته باشید که قسمت‌های مختلف پروژه نظیر منطق اصلی انجام بازی، وابستگی اساسی به بخش‌هایی نظیر واسط کاربری نداشته باشد. مثلا در فاز‌ آخر پروژه باید امکان چت (\lr{Global Chat}) میان کاربران فراهم 
+شود؛ اما برای این فاز با توجه به نبود شبکه، نیازی به پیاده‌سازی آن نیست.
+
+همچنین توجه کنید که در فاز دوم قرار است برای منطق بازی که در این فاز طراحی شده است، رابط کاربری گرافیکی طراحی کنید. در نتیجه جداسازی درست منطق بازی از رابط کاربری آن باعث می‌شود که در فاز ۲ نیاز به بازنویسی کدهای منطق به شدت کاهش یابد. 
+
+در ادامهٔ مستند، موجودیت‌ها، نمای کلی رابط کاربری سیستم، نقش‌ها و دستورات لازم شرح داده‌شده است.
+
+\begin{enumerate}[label={نکته \arabic*:}]
+	
+	\item
+	توجه کنید که در فاز 2 باید موارد جدیدی مرتبط با منطق بازی را  اضافه کنید. این موارد اضافه می‌تواند شامل حالات جدید امتیازدهی و یا \lr{Card Creator} باشد.
+	
+\item
+ تمامی اطلاعات، اعم از اطلاعات کاربران، کارت‌ها و... باید در خارج از برنامه (مثلا روی فایل) ذخیره شوند و پس از \lr{terminate} شدن برنامه و اجرای مجدد آن، بصورت خودکار اطلاعات قبلی خوانده شود و قابل دسترسی باشد. برای این کار می‌توانید از ابزارهای کار با \lr{Json} در جاوا، مثل
+  \href{https://www.tutorialspoint.com/gson/gson_quick_guide.htm}{\textcolor{blue}{\lr{Gson}}}
+یا
+  \href{https://github.com/amogilev/yagson}{\textcolor{blue}{\lr{YaGson}}}
+   استفاده‌ کنید.
+
+\item
+شما باید پروژه‌ی خود را بر بستر ابزار \lr{Apache Maven} پیاده‌سازی کنید. همچنین برای اضافه کردن کتابخانه‌های مورد نیاز، \lr{dependency} های مربوطه را به فایل \lr{pom.xml} اضافه کنید.
+
+
+
+
+   
+
+\item
+در هر جایی از پروژه می‌توانید هرگونه خلاقیتی را به‌کار ببرید. با این حال توجه کنید که خواسته‌های واضح پروژه بایستی انجام شوند و سیستم ورودی گرفتن و خروجی دادن شما باید مطابق جزییات گفته شده در این مستند باشد.
+
+
+
+
+\item
+در مستند بعضی از دستور‌هایی که مشاهده می‌کنید فرمتی به شکل زیر دارند:
+
+\begin{mybox}[colback=yellow]{دستور}
+	
+	
+	\begin{latin}
+		
+	user login -{}-username <username> -{}-password <password>
+		
+	\end{latin}
+	
+\end{mybox}
+
+در چنین مواردی که شامل پارامتر‌هایی هستند که با
+\lr{-{}-}
+یعنی دو کاراکتر دش، مشخص شده‌اند، باید بتوانیم از دستور با هر ترتیبی استفاده کنیم. یعنی دستور زیر
+
+\begin{mybox}[colback=yellow]{دستور}
+	
+	
+	\begin{latin}
+		
+		user login -{}-password <password> -{}-username <username> 
+		
+	\end{latin}
+	
+\end{mybox}
+
+هم دستور معتبری است.
+
+همچنین به عنوان نمره امتیازی، می‌توانید حالت مخفف شده را هم برای آنان پیاده‌سازی کنید. نحوه مخفف سازی به صورت تک حرفی با و با یک نماد -
+خواهد بود و نحوه انتخاب حروف برعهده خودتان است. مثلا برای نمونه بالا چنین عبارتی می‌تواند پیشنهاد خوبی باشد:
+
+\begin{mybox}[colback=yellow]{دستور}
+	
+	
+	\begin{latin}
+		
+		user login -p <password> -u <username> 
+		
+	\end{latin}
+	
+\end{mybox}
+
+همچنین توجه کنید که اگر دستور نامعتبری وارد شد که در قسمت مربوطه، برای آن خطای به خصوصی در نظر گرفته نشده بود، پیام زیر را چاپ کنید:
+
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	
+	
+	\begin{latin}
+		
+	invalid command
+		
+	\end{latin}
+	
+\end{mybox}
+
+
+\end{enumerate}
+
+
+
+
+\newpage
+
+
+\section*{{\titr معرفی بازی}}
+\addcontentsline{toc}{section}{{\fehrestContent معرفی بازی}}
+
+در مستند ضمیمه، به معرفی بازی و قواعد آن مستقل از خواسته‌های پروژه پرداخته شده است. توصیه می‌شود قبل از مطالعه این مستند که در مورد نکات پیاده‌سازی خود پروژه است، به مطالعه داک مربوط به قواعد بازی بپردازید.
+
+
+
+
+
+\section*{{\titr توضیح بخش‌های مختلف پروژه}}
+\addcontentsline{toc}{section}{{\fehrestContent توضیح بخش‌های مختلف پروژه}}
+
+
+
+\subsection*{{\titr کاربر، منوها و موارد عمومی}}
+\addcontentsline{toc}{subsection}{{\fehrestContent کاربر، منوها و موارد عمومی
+}}
+
+در این بازی مانند تمام بازی‌های دیگر یک عده کاربر وجود دارند که بازی می‌کنند. 
+هر کاربر باید فیلد‌های زیر را داشته باشد:
+\begin{itemize}[label=$\blacksquare$]
+	\begin{latin}
+		\item username
+		\item password
+		\item nickname
+		\item score
+	\end{latin}
+\end{itemize}
+ \forestset{
+	declare dimen register=folder indent,
+	folder indent=.45em,
+	folder/.style={
+		parent anchor=-children last,
+		anchor=parent first,
+		calign=child,
+		calign primary child=1,
+		for children={
+			child anchor=parent,
+			anchor=parent first,
+			edge={rotate/.option=!parent.grow},
+			edge path'/.expanded={
+				([xshift=\forestregister{folder indent}]!u.parent anchor) |- (.child anchor)
+			},
+		},
+		after packing node={
+			if n children=0{}{
+				tempdiml=l_sep()-l("!1"),
+				tempdims={-abs(max_s("","")-min_s("",""))-s_sep()},
+				for children={
+					l+=tempdiml,
+					s+=tempdims()*(reversed()-0.5)*2,
+				},
+			},
+		},
+	}
+}
+
+در ابتدای بازی هر فرد باید ثبت نام کند و سپس در دفعات بعدی فقط وارد شود و 
+بازی کند.
+\\
+همچنین یک تابلو امتیازات وجود دارد که کاربران را بر اساس امتیازی که دارند، 
+رتبه‌بندی می‌کند و با نام مستعارشان نمایش می‌دهد.
+
+پس از ورود به بازی، وارد منوی ورود و ثبت‌نام (\lr{Login Menu}) می‌شویم و پس از 
+ساخت اکانت و وارد شدن کاربر به منوی اصلی (\lr{Main Menu}) می‌رویم که راه 
+ارتباطی میان تمام اجزای مختلف بازی است. توجه کنید اگر کاربر بدون لاگین کردن قصد رفتن به منوی دیگری را داشته باشد، باید با خطای زیر رو به رو شود:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		please login first
+	\end{latin}
+\end{mybox}
+\newpage
+ در کل ساختار منوهای ما به شکل زیر است:
+
+\begin{latin}
+	
+	\begin{forest}
+		for tree={grow'=0,folder,draw}
+		[Login
+		[Main
+		[Duel]
+		[Deck]
+		[Scoreboard]
+		[Profile]
+		[Shop]
+		[Import/Export]
+		]
+		]
+	\end{forest}
+\end{latin}
+
+دستورات هر منو فقط داخل آن‌ها معتبر است و اگر در منوی مربوطه صدا زده نشوند، 
+باید خطای مناسب چاپ شود.
+
+\subsubsection*{{\titr دستورات مرتبط با منو}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent دستورات مرتبط با 
+منو}}
+\vspace{.5cm}
+\textbf{ورود به یک منو:}
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		menu enter <menu name>
+	\end{latin}
+\end{mybox}
+
+
+در صورتی که کاربر داخل یک منوی دیگر باشد باید خطای زیر چاپ شود:
+\\
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		menu navigation is not possible
+	\end{latin}
+\end{mybox}
+
+\vspace{.5cm}
+\textbf{خروج از یک منو:}
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		menu exit
+	\end{latin}
+\end{mybox}
+در صورتی داخل یک منو باشیم، این دستور ما را به منوی بالاتر می‌برد و اگر در 
+منوی اصلی باشیم وارد منوی ورود و ثبت‌نام خواهیم شد. در صورتی که در منوی 
+ورود 
+و ثبت‌نام بودیم، بازی خاتمه خواهد یافت.
+
+\vspace{.5cm}
+\newpage
+\textbf{منوی فعلی:}
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		menu show-current 
+	\end{latin}
+\end{mybox}
+این دستور نام منوی فعلی را نشان می‌دهد و اگر در منوی اصلی باشیم 
+\lr{Main Menu} و اگر در منوی ورود و ثبت‌نام باشیم \lr{Login Menu} چاپ می‌شود.
+
+\vspace{.5cm}
+\textbf{ساخت کاربر جدید:}
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		user create -{}-username <username> -{}-nickname <nickname> 
+		-{}-password 
+		<password>
+	\end{latin}
+\end{mybox}
+پیغام موفقیت:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		user created successfully!
+	\end{latin}
+\end{mybox}
+خطا‌های زیر در صورت وجود به همین ترتیب بررسی شوند:
+\\
+نام کاربری تکراری:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		user with username <username> already exists
+	\end{latin}
+\end{mybox}
+نام مستعار تکراری:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		user with nickname <nickname> already exists
+	\end{latin}
+\end{mybox}
+
+\vspace{.5cm}
+\textbf{ورود کاربر:}
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		user login -{}-username <username> -{}-password <password>
+	\end{latin}
+\end{mybox}
+پیغام موفقیت:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		user logged in successfully!
+	\end{latin}
+\end{mybox}
+خطا‌های زیر در صورت وجود به همین ترتیب بررسی شوند:
+\\
+عدم وجود کاربر با این نام کاربری:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		Username and password didn’t match!
+	\end{latin}
+\end{mybox}
+رمز اشتباه:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		Username and password didn’t match!
+	\end{latin}
+\end{mybox}
+توجه کنید که از دیدگاه امنیت، یک تلاش ناموفق برای ورود هیچ‌گاه نباید دارای 
+اطلاعاتی باشد که فرایند ورود را برای بار دوم راحت‌تر کند. مثلا اگر فردی 
+صرفا 
+قصد دزدیدن یکسری اکانت بدون توجه به صاحب آن‌ها را داشته باشد و در نتیجه 
+یکسری نام‌کاربری تصادفی را امتحان کند، در صورتی که نام‌کاربری و پسورد مطابقت 
+نداشت، نباید از پیام ما متوجه بشود که نام‌کاربری که وارد کرده، واقعا در 
+سیستم وجود دارد. در نتیجه در هر دو حالت بالا پیغام خطای یکسانی چاپ می‌شود.
+
+\vspace{.5cm}
+\textbf{خروج کاربر:}
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		user logout
+	\end{latin}
+\end{mybox}
+این دستور تنها در منوی اصلی معتبر است و در صورت موفقیت، وارد منوی ورودی و 
+ثبت‌نام می‌شود.
+\\
+پیغام موفقیت:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		user logged out successfully!
+	\end{latin}
+\end{mybox}
+
+\vspace{.5cm}
+\textbf{جدول امتیازات:}
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		scoreboard show
+	\end{latin}
+\end{mybox}
+پس از ورود به منوی \lr{scoreboard} با اجرای دستور باید لیست کاربران که بر 
+اساس امتیازشان به صورت نزولی مرتب شده است به همراه نام مستعارشان نمایش داده 
+شود. اگر دو کاربر امتیاز برابر داشتند، نام مستعارشان را به ترتیب حروف الفبا 
+اما با رتبه یکسان چاپ کنید. هر کاربر در یک خط و با فرمت زیر چاپ شود:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		rank- <nickname>: <score>
+	\end{latin}
+\end{mybox}
+نمونه‌ای از خروجی به شکل زیر است:
+\begin{mybox}[colback=yellow]{نمونه خروجی}
+	\begin{latin}	
+		1- shahin: 5000 \\
+		2- hovakhshatara: 4000 \\
+		3- ebrahim\_1379: 3000 \\
+		3- the-ultimate-mahD: 3000 \\
+		5- rostam-dastan: 1000
+	\end{latin}
+\end{mybox}
+
+\vspace{.5cm}
+\textbf{پروفایل:}
+\\
+پس از ورود به منوی profile دستورات زیر معتبر هستند:
+\\
+\vspace{.5cm}
+\textbf{تغییر نام مستعار:}
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		profile change -{}-nickname <nickname>
+	\end{latin}
+\end{mybox}
+پیغام موفقیت:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		nickname changed successfully!
+	\end{latin}
+\end{mybox}
+در صورتی که کاربری با این نام مستعار وجود داشت خطای زیر چاپ شود:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		user with nickname <nickname> already exists
+	\end{latin}
+\end{mybox}
+
+\vspace{.5cm}
+\textbf{تغییر رمز عبور:}
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		profile change -{}-password -{}-current <current password> -{}-new <new 
+		password>
+	\end{latin}
+\end{mybox}
+پیغام موفقیت:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		password changed successfully!
+	\end{latin}
+\end{mybox}
+خطا‌های زیر در صورت وجود به همین ترتیب بررسی شوند:
+\\
+نادرست بودن رمز فعلی:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		current password is invalid
+	\end{latin}
+\end{mybox}
+یکی بودن رمز قدیم و جدید:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		please enter a new password
+	\end{latin}
+\end{mybox}
+
+\subsection*{{\titr معرفی ساختار کارت‌ها}}
+\addcontentsline{toc}{subsection}{{\fehrestContent معرفی ساختار کارت‌ها}}
+
+به طور کلی سه دسته کارت در بازی داریم:
+\begin{itemize}
+	\item
+	هیولا
+	\item
+	جادو
+	
+	\item
+	تله
+\end{itemize}
+
+در مستند قواعد بازی که ضمیمه این مستند است، به تفضیل به قواعد مربوط به آن‌ها پرداخته شده است.
+
+
+
+
+\subsubsection*{{\titr نحوه نمایش متنی کارت‌ها}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent نحوه نمایش متنی کارت‌ها}}
+
+در قسمت‌هایی از بازی لازم است که کارت‌ها را با جزییات کامل نمایش بدهید. نمونه‌ای از آن چه که به عنوان جزییات کامل یک کارت در نظر گرفته می‌شود در زیر آمده است.
+
+\newpage
+\begin{itemize}
+
+	\item کارت هیولا:
+\begin{mybox}[colback=yellow]{نمونه خروجی}
+	\begin{latin}	
+		\begin{verbatim}
+			Name: Card Name
+			Level: 4
+			Type: Warrior
+			ATK: 1500
+			DEF: 1500
+			Description: Some Text
+		\end{verbatim}
+	\end{latin}
+\end{mybox}	
+	
+	
+		\item کارت جادو:
+	\begin{mybox}[colback=yellow]{نمونه خروجی}
+		\begin{latin}	
+			\begin{verbatim}
+			Name: Card Name
+			Spell
+			Type: Normal
+			Description: Some Text
+				\end{verbatim}
+		\end{latin}
+	\end{mybox}	
+
+
+	\item کارت تله:
+\begin{mybox}[colback=yellow]{نمونه خروجی}
+	\begin{latin}	
+		\begin{verbatim}
+		Name: Card Name
+		Trap
+		Type: Normal
+		Description: Some Text
+			\end{verbatim}
+	\end{latin}
+\end{mybox}	
+	
+\end{itemize}
+
+
+برای نمایش مشخصات کارت‌ها از دستور زیر استفاده می‌کنیم:
+\begin{mybox}[colback=yellow]{نمونه خروجی}
+	\begin{latin}	
+		\begin{verbatim}
+			card show <card name>
+		\end{verbatim}
+	\end{latin}
+\end{mybox}	
+
+و در فروشگاه، دک و بازی می‌توانیم از این دستور استفاده کنیم.
+
+
+
+
+\subsection*{{\titr دک و دسته‌کارت‌ها}}
+\addcontentsline{toc}{subsection}{{\fehrestContent دک و دسته‌کارت‌ها}}
+دسته کارت یا به اختصار د.ک. (\lr{Deck}) در واقع مخزنی از کارت‌هاست که شما با 
+آن به مصاف حریف خود می‌روید. هر دک به دو دسته تقسیم می‌شود:
+\begin{itemize}
+	\item
+	دک اصلی
+	\item
+	دک جانبی
+\end{itemize}
+
+\subsubsection*{{\titr دک اصلی (\lr{Main Deck})}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent دک اصلی (\lr{Main 
+Deck})}}
+دک اصلی شامل حداقل ۴۰ کارت و حداکثر ۶۰ کارت است. 
+\\
+از هر کارت تنها ۳ عدد می‌تواند در یک دک باشد. 
+
+
+\subsubsection*{{\titr دک فرعی (\lr{Side Deck})}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent دک فرعی (\lr{Side 
+Deck})}}
+دک جانبی شامل حداقل صفر و حداکثر ۱۵ کارت است.
+\\
+کاربرد دک جانبی این است که شما می‌توانید در بین بازی، یک کارت از دک جانبی را 
+با دک اصلی جا‌به‌جا کنید تا استراتژی خود را بهبود ببخشید. بنابراین تعداد 
+کارت‌های دک جانبی در بازی همیشه ثابت است و تنها یک کارت میان دک جانبی و اصلی 
+جا‌به‌جا می‌شود.
+
+توجه کنید که در پروژه ما، \lr{Side Deck} تنها برای بازی‌هایی که با سه \lr{Round} بازی می‌شوند کاربرد ‌دارند.
+
+\subsubsection*{{\titr نکات کلی}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent نکات کلی}}
+\begin{itemize}
+	\item
+	هر بازیکن برای بازی‌، باید حتما یک دک معتبر داشته باشد و دکی معتبر است 
+	که دک اصلی‌آن حداقل ۴۰ کارت داشته باشد.
+	\item
+	هر بازیکن می‌تواند به تعداد دلخواه دک داشته باشد اما تنها یک دک به عنوان 
+	دک فعال (\lr{Active Deck}) انتخاب شده و با آن بازی می‌شود.
+	\item
+	نام دک‌ها نباید تکراری باشد.
+	\item
+	از آن‌جایی که تعداد مجاز یک کارت در دک ۳ است، دک جانبی نیز نباید این 
+	قانون را نقض کند، به عبارتی مجموع یک کارت در دک اصلی و جانبی ۳ است و 
+	اگر از 
+	یک کارت ۳ عدد در دک اصلی وجود داشت، دیگری نمیتوان آن کارت را به دک 
+	جانبی 
+	اضافه کرد.
+\end{itemize}
+
+\subsubsection*{{\titr دستورات مرتبط با دک}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent دستورات مرتبط با دک}}
+پس از ورود به منوی \lr{Deck}، دستورات زیر معتبر هستند:
+
+\vspace{.5cm}
+\textbf{ساخت دک جدید:}
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		deck create <deck name>
+	\end{latin}
+\end{mybox}
+
+پیغام موفقیت:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		deck created successfully!
+	\end{latin}
+\end{mybox}
+خطا در صورتی که دک با این نام وجود داشته باشد:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		deck with name <deck name> already exists
+	\end{latin}
+\end{mybox}
+
+\vspace{.5cm}
+\textbf{حذف دک:}
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		deck delete <deck name>
+	\end{latin}
+\end{mybox}
+توجه: زمانی که یک دک حذف می‌شود، تمام کارت‌های موجود در آن به موجودی کارت‌های 
+بازیکن باز می‌گردد.
+\\
+پیغام موفقیت:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		deck deleted successfully
+	\end{latin}
+\end{mybox}
+خطا در صورتی که دک با این نام وجود نداشته باشد:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		deck with name <deck name> does not exist
+	\end{latin}
+\end{mybox}
+
+\vspace{.5cm}
+\textbf{انتخاب دک به عنوان دک فعال:}
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		deck set-activate <deck name>
+	\end{latin}
+\end{mybox}
+توجه: معتبر نبودن دک در هنگام شروع بازی بررسی خواهد شد.
+\\
+پیغام موفقیت:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		deck activated successfully
+	\end{latin}
+\end{mybox}
+خطا در صورتی که دک با این نام وجود نداشت:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		deck with name <deck name> does not exist
+	\end{latin}
+\end{mybox}
+
+\vspace{.5cm}
+\textbf{اضافه کردن کارت به دک:}
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		deck add-card -{}-card <card name> -{}-deck <deck name> 
+		-{}-side(optional)
+	\end{latin}
+\end{mybox}
+توجه کنید که تنها برای اضافه کردن کارت به \lr{side deck} از پرچم \lr{side-
+{}-} 
+استفاده می‌کنیم. اگر از آن استفاده نکینم، به معنی اضافه شدن به دک اصلی است.
+\\
+پیغام موفقیت:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		card added to deck successfully
+	\end{latin}
+\end{mybox}
+خطاهای زیر در صورت وجود باید به همین ترتیب بررسی شوند:
+\\
+عدم وجود کارت با این نام در موجودی کارت‌های بازیکن:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		card with name <card name> does not exist
+	\end{latin}
+\end{mybox}
+عدم وجود دک با این نام:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		deck with name <deck name> does not exist
+	\end{latin}
+\end{mybox}
+پر بودن دک اصلی یا جانبی:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		<main/side> deck is full
+	\end{latin}
+\end{mybox}
+اگر در حال حاضر از یک کارت ۳ تا در دک موجود باشد:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		there are already three cards with name <card name> in deck <deck name>
+	\end{latin}
+\end{mybox}
+
+\vspace{.5cm}
+\textbf{حذف کارت از دک:}
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		deck rm-card -{}-card <card name> -{}-deck <deck name> 
+		-{}-side(optional)
+	\end{latin}
+\end{mybox}
+توجه کنید که تنها برای حذف کردن کارت از \lr{side deck} از پرچم \lr{-{}-side} استفاده 
+می‌کنیم.
+\\
+توجه: زمانی که یک کارت از دک حذف می‌شود، به موجودی کارت‌های بازیکن برمی‌گردد.
+\\
+پیغام موفقیت:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		card removed form deck successfully
+	\end{latin}
+\end{mybox}
+خطاهای زیر در صورت وجود باید به همین ترتیب بررسی شوند:
+\\
+عدم وجود دک با این نام:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		deck with name <deck name> does not exist
+	\end{latin}
+\end{mybox}
+عدم وجود کارت با این نام در دک اصلی یا جانبی:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		card with name <card name> does not exist in <main/side> deck
+	\end{latin}
+\end{mybox}
+
+\textbf{نمایش دک‌های بازیکن:}
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		deck show -{}-all
+	\end{latin}
+\end{mybox}
+خروجی باید با فرمت زیر باشد:
+\\
+هر دک با فرمت زیر نمایش داده می‌شود که ابتدا نام دک، سپس تعداد کارت‌های موجود 
+در دک اصلی و سپس دک جانبی و در انتها معتبر بودن یا نبودن دک می‌آید.
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		<deck name>: main deck <number of main deck cards>, side deck <number 
+		of side deck cards>, <valid/invalid>
+	\end{latin}
+\end{mybox}
+به طور مثال:
+\begin{mybox}[colback=yellow]{خروجی نمونه}
+	\begin{latin}	
+		My best: main deck 50, side deck 5, valid
+	\end{latin}
+\end{mybox}
+خروجی کلی به شکل زیر است:
+\\
+ابتدا در صورتی که یک دک به عنوان دک فعال انتخاب شده باشد، نمایش داده خواهد 
+شد و در صورتی که دک فعالی وجود نداشته باشد چیزی زیر \lr{Active deck} چاپ نمی‌شود، 
+سپس بقیه دک‌ها زیر \lr{Other decks} به ترتیب حروف الفبا چاپ می‌شوند:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		Decks: \\
+		Active deck: \\
+		<active deck> \\
+		Other decks: \\
+		<other decks>
+	\end{latin}
+\end{mybox}
+اگر کاربر هیچ دکی نداشته باشد خروجی به شکل زیر خواهند بود:
+\begin{mybox}[colback=yellow]{خروجی نمونه}
+	\begin{latin}	
+		Decks: \\
+		Active deck: \\
+		Other decks:
+	\end{latin}
+\end{mybox}
+
+\vspace{.5cm}
+\textbf{نمایش یک دک:}
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		deck show -{}-deck-name <deck name> -{}-side(Opt)
+	\end{latin}
+\end{mybox}
+توجه: برای نمایش دک فرعی از پرچم \lr{-{}-side}  استفاده می‌کنیم.
+\\
+خروجی:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		Deck: <deck name> \\
+		Side/Main deck: \\
+		Monsters: \\
+		<card name>: <card description> \\
+		Spell and Traps: \\
+		<card name>: <card description> \\
+	\end{latin}
+\end{mybox}
+دقت شود که در هر قسمت ترتیب کارت‌ها بر اساس ترتیب الفبایی نامشان است.
+
+در صورتی که دک مورد نظر وجود نداشت پیغام
+
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		deck with name <deck name> does not exist
+	\end{latin}
+\end{mybox}
+
+را نمایش بدهید.
+
+
+
+\textbf{نمایش همه کارت‌ها:}
+
+با دستور زیر، لیست تمامی کارت‌هایی که کاربر خریداری کرده است، نمایش داده می‌شود:
+
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		deck show -{}-cards
+	\end{latin}
+\end{mybox}
+و نمایش کارت‌ها به فرمت زیر و هر کارت در یک خط خواهد بود:
+
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		<card name>:<card description>
+	\end{latin}
+\end{mybox}
+
+و ترتیب نمایش کارت‌ها بر اساس ترتیب الفبایی نام‌هایشان است.
+
+
+
+\subsection*{{\titr فروشگاه}}
+\addcontentsline{toc}{subsection}{{\fehrestContent فروشگاه}}
+در این قسمت باید فروشگاه را پیاده‌سازی کنید.
+\\
+همانطور که از اسمش مشخص است باید بازیکنان در این قسمت بتوانند کارت مورد نظر 
+خود را خریداری کنند. هر بازیکن در هنگام شروع بازی 100‌هزار واحد پول دارد.
+\\
+هر کارت یک قیمتی دارد که برای خریداری آن باید پرداخت شود. قیمت ها نیز بر 
+اساس قدرت هر کارت تعیین شده است.
+\\
+قیمت هر کارت در فایل اکسل موجود است.
+\\
+در فروشگاه باید لیست تمام کارت‌ها موجود باشد و کاربر می‌تواند با دستور زیر، 
+کارت مورد نظر را خریداری کند.
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		shop buy <card name>
+	\end{latin}
+\end{mybox}
+اگر کاربر  نام اشتباهی را وارد کرده بود پیغام زیر را چاپ کنید:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		there is no card with this name
+	\end{latin}
+\end{mybox}
+اگر کاربر سکه کافی برای خرید کارت را نداشت پیغام زیر را چاپ کنید:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		not enough money
+	\end{latin}
+\end{mybox}
+توجه داشته باشید که هیچ محدودیتی در خرید تعداد زیادی کارت یکسان ندارید.
+\\
+برای نمایش کارت‌های موجود در \lr{shop} دستور زیر را به کار ببرید.
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		shop show -{}-all
+	\end{latin}
+\end{mybox}
+خروجی دستور بالا به شکل زیر است:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		<card name>:<card price>
+	\end{latin}
+\end{mybox}
+که ترتیب نمایش کارت‌ها بر اساس ترتیب الفبایی نام‌هایشان است.
+
+\subsection*{{\titr گیم پلی بازی (قسمت اصلی انجام بازی)}}
+\addcontentsline{toc}{subsection}{{\fehrestContent گیم پلی بازی (قسمت اصلی 
+انجام بازی)}}
+در ابتدا از منوی اصلی باید به منوی بازی برویم با دستور
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		duel -{}-new -{}-second-player <player2 username> -{}-rounds <1/3>
+	\end{latin}
+\end{mybox}
+    در صورتی که بازیکن \lr{player 2} وجود نداشت پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		there is no player with this username
+	\end{latin}
+\end{mybox}
+    چاپ شود و در صورتی که هر یک از بازیکنان دک فعال نداشتند پیغام خطای زیر 
+    چاپ شود:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		<username> has no active deck
+	\end{latin}
+\end{mybox}
+    که در ابتدا بازیکن اصلی که درخواست بازی کرده است بررسی می‌شود و بعد 
+    بازیکنی که از آن درخواست شده.
+\\
+    در صورتی هم که دک فعال آنها غیرمجاز بود دستور زیر چاپ شود:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		<username>’s deck is invalid
+	\end{latin}
+\end{mybox}
+همچنین اگر تعداد جلوی 
+\lr{-{}-rounds}
+برابر $1$ یا $3$ نبود پیغام:
+
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		number of rounds is not supported
+	\end{latin}
+\end{mybox}
+را نمایش بدهد.
+
+    بعد از این دستور در صورت عدم وجود خطا بازی ای با \lr{deck} فعال هر 
+    بازیکن ساخته می‌شود و وارد بازی می‌شویم.
+    
+    همچنین توجه کنید برای انجام بازی با هوش مصنوعی، دستور را به این شکل وارد می‌کنیم:
+    
+    \begin{mybox}[colback=yellow]{دستور}
+    	\begin{latin}	
+    		duel -{}-new -{}-ai -{}-rounds <1/3>
+    	\end{latin}
+    \end{mybox}
+    
+\subsubsection*{{\titr نمایش صفحه بازی}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent نمایش صفحه بازی}}
+بعد از انجام هر دستوری و هر حرکتی وقتی به منوی اصلی بازی رفتیم باید برد 
+بازی به صورت زیر نمایش داده شود:
+
+\vspace{.5cm}
+\textbf{نکات کلی نمایش صفحه:}
+\\
+صفحه بازی باید به گونه‌ای نمایش داده شود نوبت هر بازیکنی باشد فیلد خود در سمت 
+پایین نمایش داده شود. یعنی بعد از تغییر نوبت صفحه بازی باید قرینه نسبت به 
+نقطه مرکز بازی شود یا دوران 180 درجه صفحه.
+\\
+هنگام نمایش صفحه در این فاز فقط لازم است تعداد کارت‌ها در بخش های مختلف زمین 
+مثل \lr{graveyard} نمایش داده شود به همراه تعداد کارت‌هایی که در دست حریف 
+است 
+به همراه کارت‌های روی \lr{field} بازی، و برای کارت‌های \lr{field} بازی نیازی 
+به نمایش خود کارت‌ها نیست و به روشی که نشان می‌دهیم فقط نوع قرارگیری کارت‌ها 
+را نمایش می‌دهیم.
+\\
+برای انتخاب یا نمایش کارت‌های هر قسمت از صفحه بازی که بعدا با دستور های آن 
+آشنا می‌شویم نیاز به آشنایی به مختصات و اسم هر قسمت از بخش‌های صفحه بازی 
+داریم:
+\begin{itemize}
+	\item گورستان کارت‌ها(\lr{graveyard}):
+	\\
+	با عبارت \lr{graveyard} به \lr{graveyard} خود و \lr{graveyard -{}-opponent} 
+	به \lr{graveyard} حریف اشاره کند.
+	\item قسمت کارت‌های هیولا(\lr{monster card zone}):
+	\\
+	همانطور که می‌دانید هر بخش 5 کارت دارد. شماره‌گذاری صفحه به صورت زیر است. 
+	از این سیستم شماره گذاری برای دستور \lr{select} بعدا به طور کامل آن را 
+	توضیح 
+	می‌دهیم استفاده می‌شوند.
+	\\
+	برای شماره گذاری کارت‌های monster زمین خود به صورت زیر عمل می‌کنیم:
+	
+	\begin{center}
+	\begin{latin}
+	\begin{table}[h]
+		\centering
+		\resizebox{0.5\textwidth}{!}{%
+			\begin{tabular}{|c|c|c|c|c|}
+			
+				5 & 3 & 1 & 2 & 4 \\ 
+			\end{tabular}%
+		}
+	\end{table}
+\end{latin}
+\end{center}
+
+	
+%	\begin{figure}[h]
+%		\centering
+%		\includegraphics[width=.5\paperwidth]{./Resources/CardsNumbering.png}
+%		\caption{شماره گذاری کارت‌های \lr{monster} زمین خود}
+	%	\label{}
+	%\end{figure}
+	مثلا کارتی که در جایگاه 2 است را به صورت زیر صدا می‌زنیم.
+	\begin{mybox}[colback=yellow]{ورودی نمونه}
+		\begin{latin}	
+			select -{}-monster 2
+		\end{latin}
+	\end{mybox}
+	و چون کارت‌های زمین حریف 180 درجه دوران یافته‌اند شماره‌گذاری آنها به صورت 
+	زیر است:
+	
+		\begin{center}
+		\begin{latin}
+			\begin{table}[h]
+				\centering
+				\resizebox{0.5\textwidth}{!}{%
+					\begin{tabular}{|c|c|c|c|c|}
+						
+						4 & 2 & 1 & 3 & 5 \\ 
+					\end{tabular}%
+				}
+			\end{table}
+		\end{latin}
+	\end{center}
+	%\begin{figure}[h]
+	%	\centering
+	%	\includegraphics[width=.5\paperwidth]{./Resources/CardsNumbering_1.png}
+	%	\caption{شماره گذاری کارت‌های \lr{monster} زمین حریف}
+		%\label{}
+	%\end{figure}
+	برای مثال برای سمت راست‌ترین کارت باید
+	\begin{mybox}[colback=yellow]{ورودی نمونه}
+		\begin{latin}	
+			select -{}-monster 5 -{}-opponent 
+		\end{latin}
+	\end{mybox}
+	را صدا بزنیم.
+	 \item قسمت کارت‌های جادو و تله (\lr{spell and trap card zone})
+	 \\
+	 نام‌گذاری کارت‌های این بخش مانند بخش بالا است با یک تفاوت که به جای\\ 
+	 \lr{-{}-monster} باید از \lr{-{}-spell} استفاده کرد. (مثلا:  \lr{select -
+	 {}-
+	 spell 1})
+	 
+	 \item بخش دسته کارت‌ها (\lr{deck zone})
+	 \\
+	 که کارت‌های \lr{deck} در آنجا قرار می‌گیرند و در نمایش فقط تعداد آنها 
+	 نمایش داده می‌شوند.
+	 \item بخش میدان (\lr{field zone})
+	 \\
+	 که حداکثر یک کارت در آن قرار میگیرد و برای صدا زدن \lr{field zone} خود 
+	 یا حریف از 2 دستور \lr{select -{}-field} یا 
+	 \lr{select -{}-field -{}-opponent} 
+	 استفاده می‌کنیم.
+\end{itemize}
+
+\vspace{.5cm}
+\textbf{چگونگی نمایش صفحه بازی:}
+در این قسمت چگونگی نمایش کل صفحه بازی به همراه کارت‌های درون هر بخش و یک 
+مثال و را توضیح می‌دهیم.
+\\
+صفحه بازی بعد از اتمام هر عملیات به شکل زیر نمایش داده می‌شود: معنای هر یک از نمادهای اختصاری در ادامه آورده شده است.
+
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		\begin{Verbatim}[tabsize =4]
+<opponent nickname>:<opponent life point>
+    c   c   c   c   c   c  
+DN
+    O   O   H   E   O
+    E   DH  DO  OO  E
+GY                     FZ
+
+--------------------------
+
+FZ                     GY
+    OO  DH  DH  DH  E
+    O   O   O   O   H
+                       DN
+c   c   c   c   c   c
+<my nickname>:<my life point>
+		\end{Verbatim}
+	\end{latin}
+\end{mybox}
+
+
+در عبارت بالا C‌ های هر یک از طرفین باید به تعداد کارت‌هایی باشد که در دست دارند.
+
+
+(توجه شود که تمام فواصل بالا تب [\lr{tab}] هستند)  
+\\
+در بخش بالا کارت‌های پایین‌خط مربوط به بازیکنی است که در آن لحظه نوبت اوست که با 
+تغییر \lr{turn} بازی نیز باید 180 درجه بچرخد و عوض شود.
+\\
+در بخش بالا به جای \lr{GY} باید تعداد کارت‌های درون \lr{graveyard} را نمایش 
+دهند.
+\\
+به جای \lr{FZ} اگر در آن قسمت کارتی بود \lr{O} به معنای \lr{Occupied} و اگر 
+کارتی نبود \lr{E} به معنای \lr{Empty} را نمایش دهند.
+\\
+در بخش هیولا یا همان \lr{monster card zone} که در بالا یک مثال از آن می‌بینید به 
+ازای هر جایگاهی که خالی است \lr{E} و هر جایگاهی که کارت در آن در حالت دفاعی 
+(\lr{defensive}) قرار گرفته و برای حریف دیده می‌شود \lr{DO} به معنی
+ \lr{defensive occupied} و اگر برای حریف دیده نمی‌شود یا همان \lr{set} شده است 
+ \lr{DH} 
+ به معنی \lr{defensive hidden} است. و کارتی که \lr{summon} شده و در حالت حمله 
+ است \lr{OO} به 
+ معنی \lr{offensive occupied} است.
+\\
+در بخش تله و جادو (\lr{spell and trap}) به ازای هر کارتی که برای حریف نمایش 
+داده می‌شود \lr{O} و هر کارتی که نمایش داده نمی‌شود \lr{H} بزارید.
+\\
+در نمایش صفحه بازی به جای \lr{DN} باید تعداد کارت‌های باقی مانده در 
+\lr{deck}. دوباره تکرار می‌شود که در صفحه‌ی بازی‌، صفحه‌ی دشمن 180 درجه دوران 
+یافته و ترتیب کارت‌ها در هر \lr{Zone} برعکس شده است.
+
+
+
+\subsubsection*{{\titr انتخاب یک کارت}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent انتخاب یک کارت}}
+برای انتخاب یک کارت چه از بین کارت‌های خود و کارت‌های حریف دستورات زیر را 
+تعریف می‌کنیم و بعدا کارهایی که بعد از انتخاب هر کارت می‌توان انجام داد را 
+معرفی می‌کنیم.
+\\
+ابتدا بدانید که بعد از انجام هر دستور مثل \lr{attack} یا \lr{set} یا 
+\lr{summon} همانطور که صفحه بازی نمایش داده شده و \lr{update} می‌شود باید 
+کارت \lr{select} شده از حالت \lr{Select} خارج شود.
+\\
+دستور \lr{select} به صورت زیر انجام می‌شود:
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		select <card address>
+	\end{latin}
+\end{mybox}
+و آدرس کارت‌ها همانطور که در قسمت نکات کلی نمایش صفحه به آن اشاره کردیم را 
+به طور کامل توضیح می‌دهیم.
+\begin{itemize}
+	\item
+	آدرس کارت‌هایی که در \lr{monster zone} خود بازیکن هستند به صورت\\
+	 \lr{select -{}-monster <number>}
+	  است. که \lr{number} ها در بخش های بالاتر داک توضیح داده شده‌اند.
+	\item
+	آدرس کارت‌هایی که در \lr{spell and trap card zone} هستند به صورت\\
+	 \lr{-{}-spell <number>}
+	 است. 
+	\item
+	آدرس کارت‌هایی که در \lr{monster zone} بازیکن حریف هستند (\lr{select} 
+	کردن آنها بیشتر برای دیدن اطلاعات آنهاست و کاربرد آن مانند کارت‌های 
+	خود 
+	بازیکن زیاد نیست) به صورت \lr{-{}-monster -{}-opponent <number>} است.
+	\item
+	آدرس کارت‌هایی که در \lr{spell card zone} حریف هستند به صورت\\
+	 \lr{-{}-spell -{}-opponent <number>}
+	  است.
+	\item
+	آدرس کارتی که در قسمت \lr{field zone} بازیکن است به صورت \lr{-{}-field} 
+	است.
+	\item
+	آدرس کارتی که در قسمت \lr{field zone} حریف است به صورت
+	 \lr{-{}-field -{}-opponent}
+	  است.
+	\item
+	آدرس کارتی که در \lr{hand} خود بازیکن است (که طبق قانون حداکثر 6 کارت 
+	نیز هستند) به صورت 
+	\lr{select -{}-hand <number>}
+	 است که \lr{number} در کارت‌های درون دست در هنگام نمایش برای خود از چپ به 
+	 راست شماره گذاری می‌شوند. البته که نیاز به نمایش شماره نیست و از 
+	 شماره فقط 
+	 برای عملیات انتخاب کردن استفاده می‌شود.
+	 \item
+	 همانطور که معلوم است نیازی به انتخاب و آدرس‌دهی کارتی که در دست بازیکن 
+	 حریف است نداریم؛ زیرا هیچ وقت برای بازیکن دیگر قابل نمایش نیست.	
+\end{itemize}
+در صورتی که آدرس داده شده \lr{invalid} بود مثلا هیچ یک از حالات بالا نبود یا 
+شماره آن نامعتبر بود یا عدد بعد از \lr{my hand} بیش‌تر از کارت‌های درون دست 
+فرد بود پیام زیر چاپ شود:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		invalid selection
+	\end{latin}
+\end{mybox}
+در غیر این صورت در دستور \lr{select} اگر در آدرسی که ذکر کردیم کارتی وجود 
+داشت پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		card selected
+	\end{latin}
+\end{mybox}
+چاپ شود و در صورتی که در آن خانه کارتی وجود نداشت پیام 
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		no card found in the given position
+	\end{latin}
+\end{mybox}
+چاپ شود.
+\\
+در صورت موفق بودن دستور \lr{select} آن کارت انتخاب شده می‌ماند و بعدا می 
+توانیم دستورهایی را اجرا کنیم که که آن‌ها را توضیح می دهیم.
+\\
+برای پاک‌کردن انتخاب خود از دستور 
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		select -d
+	\end{latin}
+\end{mybox}
+استفاده می‌کنیم. بعد از اجرای این دستور اگر کارتی انتخاب شده نبود پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		no card is selected yet
+	\end{latin}
+\end{mybox}
+و در غیر این صورت
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		card deselected
+	\end{latin}
+\end{mybox}
+چاپ شود.
+
+\subsubsection*{{\titr تغییر فاز های نوبت و دستور \lr{(Next Phase)}}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent تغییر فاز های نوبت و 
+دستور \lr{(Next Phase)}}}
+همانطور که می دانید بازی از 6 فاز
+ \lr{draw phase} ، \lr{standby phase} ، \lr{main phase 1} ، \lr{battle phase} و 
+ \lr{main phase 2} و \lr{end phase }
+ تشکیل شده است.
+\\
+    در ابتدا لازم به ذکر است که بعد از ورود به هر فاز جدید پیام زیر چاپ شود:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		phase: <phase name>
+	\end{latin}
+\end{mybox}
+    در هر فاز که بودیم با دستور \lr{next phase} به فاز بعدی بازی می رویم.
+
+\vspace{.5cm}
+\textbf{فاز کارت گرفتن (\lr{draw phase}):}
+در این فاز ابتدا کارت بالای دک را به دست بازیکنی که نوبت اوست اضافه می‌کند و 
+آن را در آخرین جایگاه کارت‌های آن فرد می گذارد و این پیام را چاپ می‌کند:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		new card added to the hand : <card name>
+	\end{latin}
+\end{mybox}
+البته همانطور که در قوانین بازی ذکر شده اگر کارت‌های دک فرد تمام شده باشند و 
+نتواند کارتی بردارد بازنده اعلام می‌شود و پیام باخت او نمایش داده می‌شود و 
+بازی تمام می‌شود.
+
+\vspace{.5cm}
+\textbf{فاز آماده باش (\lr{standby phase}):}
+
+به جز یکسری کارت‌های خاص که اثرشان در این فاز اعمال می‌شود (مثلا اضافه کردن مقداری به LP یکی از طرفین)، در این فاز کار خاصی انجام نمی‌شود.
+
+\vspace{.5cm}
+\textbf{فاز اصلی اول (\lr{Main Phase 1}):}
+در این فاز. ابتدا صفحه بازی نمایش داده می‌شود که در مورد چگونگی آن توضیحات 
+لازم را دادیم و بعد از هر دستور دوباره صفحه بازی نمایش داده می‌شود. 
+\lr{Action}‌ های مربوط به این فاز در ادامه توضیح داده خواهد شد.
+
+\vspace{.5cm}
+\textbf{فاز پایانی (\lr{End Phase}):}
+    در این فاز علاوه بر نمایش متن اسم فاز که برای همه ی فازها نام بردیم پیام 
+    زیر چاپ می‌شود. 
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+	    its <next player nickname>’s turn
+	\end{latin}
+\end{mybox}
+
+\subsubsection*{{\titr احضار یک کارت هیولا}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent احضار یک کارت هیولا}}
+    بعد از اجرای دستور
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		summon 
+	\end{latin}
+\end{mybox}
+اگر کارتی انتخاب نشده باشد و کارت انتخاب شده(\lr{selected}) نداشته باشیم 
+پیام زیر چاپ شود:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		no card is selected yet
+	\end{latin}
+\end{mybox}
+و در غیر این صورت اگر کارتی که انتخاب شده است در دست بازیکن نباشد یا 
+\lr{monster} مد نظر قابلیت احضار عادی را نداشته باشد یا کارت انتخاب شده 
+اصلا 
+\lr{monster} نباشد پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		you can’t summon this card
+	\end{latin}
+\end{mybox}
+نمایش داده می‌شود. همچنین  در صورتی که در فاز اصلی 1 یا 2 نباشیم، پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		action not allowed in this phase
+	\end{latin}
+\end{mybox}
+نمایش داده می‌شود. همچنین اگر هر 5 خانه \lr{monster card zone} پر باشند دستور
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		monster card zone is full
+	\end{latin}
+\end{mybox}
+را نمایش می‌دهیم. و اما در صورتی که در این نوبت (\lr{turn}) قبلا یک کارت  
+\lr{summon} یا \lr{set} کرده باشد و نتواند دیگر کارتی \lr{summon} کند دستور
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		you already summoned/set on this turn
+	\end{latin}
+\end{mybox}
+اگر سطح (\lr{level}) هیولایی که قصد احضار آن را داریم کمتر مساوی 4 بود آن 
+کارت \lr{summon} شده به صورت کامل احضار کرده و آن کارت را به اولین خانه‌ای 
+در 
+\lr{monster card zone} که خالی (\lr{Empty}) است ببرید. طبعا نوع قرار گیری در 
+آن خانه نیز \lr{OO} است. منظور از اولین خانه، براساس شماره خانه روی صفحه 
+بازی است. و پیغام 
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		summoned successfully
+	\end{latin}
+\end{mybox}
+را چاپ کنید و اگر سطح آن هیولا 5 یا 6 بود اگر هیچ کارتی روی زمین برای 
+\lr{tribute} کردن وجود نداشت پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		there are not enough cards for tribute
+	\end{latin}
+\end{mybox}
+را نمایش داده و در صورت وجود از کاربر یک عدد که نشان دهنده‌ی آدرس کارتی است 
+میخواهیم آن را \lr{tribute} کنیم است و در صورتی که در آن خانه هیولایی وجود 
+نداشت پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		there no monsters one this address		
+	\end{latin}
+\end{mybox}
+چاپ شود و در صورت موفقیت پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		summoned successfully 
+	\end{latin}
+\end{mybox}
+را نمایش دهید و آن کارت \lr{tribute} شده را از زمین برداشته و سپس کارت 
+انتخاب شده را بر روی اولین خانه‌ای که \lr{empty} است قرار دهید.
+\\
+و اگر سطح آن هیولا 7 یا 8 بود اگر حداقل 2 کارت هیولا روی زمین قرار نداشت پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		there are not enough cards for tribute
+	\end{latin}
+\end{mybox}
+را نمایش دهید و در غیر این صورت 2 عدد از کاربر گرفته که نشان دهنده‌ی آدرس آن 
+کارت‌هایی است که می‌خواهیم آنها رو \lr{tribute} کنیم و در صورتی که در حداقل 
+یکی از آن 2 خانه هیچ هیولایی وجود نداشت پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		there is no monster on one of these addresses
+	\end{latin}
+\end{mybox}
+چاپ شود و در صورت موفقیت پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		summoned successfully
+	\end{latin}
+\end{mybox}
+را نمایش دهید و کارت‌های روی زمین را برداشته و آن کارت انتخاب شده را 
+\lr{summon} کنید.
+
+\subsubsection*{{\titr به کمین گذاشتن یک کارت هیولا (\lr{Set})}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent به کمین گذاشتن یک کارت 
+هیولا (\lr{Set})}}
+    بعد از اجرای دستور
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		set
+	\end{latin}
+\end{mybox}
+اگر کارتی انتخاب نشده باشد و کارت انتخاب شده (\lr{selected}) نداشته باشیم 
+پیام زیر چاپ شود:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		no card is selected yet
+	\end{latin}
+\end{mybox}
+و در غیر این صورت اگر کارتی که انتخاب شده است در دست (\lr{hand}) بازیکن 
+نباشد، پیام زیر چاپ می‌شود:
+
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		you can’t set this card
+	\end{latin}
+\end{mybox}
+در غیر این صورت اگر این کارت \lr{monster} باشد (\lr{trap} و \lr{spell} را 
+بعدا توضیح می دهیم) و در صورتی که در فاز اصلی 1 یا 2 نباشد پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		you can’t do this action in this phase
+	\end{latin}
+\end{mybox}
+نمایش داده شود و اما اگر هر 5 خانه ی \lr{monster card zone} پر باشند دستور
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		monster card zone is full
+	\end{latin}
+\end{mybox}
+را نمایش دهید و اما در صورتی که در این نوبت (\lr{turn}) قبلا یک کارت 
+\lr{summon} یا \lr{set} کرده باشد و نتواند دیگر کارتی \lr{summon} کند دستور
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		you already summoned/set on this turn
+	\end{latin}
+\end{mybox}
+را نمایش دهید و در آخر اگر \lr{set} کردن او به صورت کامل انجام شد آن کارت را 
+به اولین (از لحاظ شماره ی آن خانه) خانه‌ای در \lr{monster card zone} که خالی 
+(\lr{Empty}) است ببرید (طبعا نوع قرار گیری در آن خانه نیز \lr{DH} است) و 
+دستور
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		set successfully
+	\end{latin}
+\end{mybox}
+را نمایش دهید.
+
+\subsubsection*{{\titr تغییر حالت کارت هیولا
+}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent تغییر حالت کارت هیولا }}
+    با دستور
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		set -{}- position attack/defense
+	\end{latin}
+\end{mybox}
+که با پارامتر \lr{attack} حالت یک کارتی که \lr{DO} است به یک کارت \lr{OO} تبدیل می‌شود.
+و با پارامتر \lr{defnse}
+    حالت یک کارتی که \lr{OO} است به \lr{DO} تبدیل می‌شود.
+    اگر کارتی انتخاب نشده باشد و کارت انتخاب شده (\lr{selected}) نداشته 
+    باشیم پیام زیر چاپ شود:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		no card is selected yet
+	\end{latin}
+\end{mybox}
+و در غیر این صورت اگر کارتی که انتخاب شده است در دست قسمت
+ \lr{monster card zone }
+ نباشد پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+\begin{latin}	
+	you can’t change this card position
+\end{latin}
+\end{mybox}
+نمایش داده شود و در صورتی که در فاز اصلی 1 یا 2 یا همان \lr{main phase} 
+نباشد پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		you can’t do this action in this phase
+	\end{latin}
+\end{mybox}
+اگر دستور \lr{change to attack} برای کارتی جز کارتی که حالت آن \lr{DO} است و 
+\lr{change to defense} برای کارتی که حالت آن جز \lr{OO} است صدا زده شود باید 
+پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+	    this card is already in the wanted position		
+	\end{latin}
+\end{mybox}
+نمایش داده شود و در صورتی که در این \lr{turn} یکبار \lr{position} این کارت 
+تغییر کرده باشد نمی‌توان دیگر آن را تغییر داد و پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		you already changed this card position in this turn		
+	\end{latin}
+\end{mybox}
+نمایش داده شود. در صورت موفقیت پیام زیر چاپ شود و حالت هیولا عوض شود:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		monster card position changed successfully
+	\end{latin}
+\end{mybox}
+
+\subsubsection*{{\titr احضار چرخشی(\lr{Flip Summon})}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent احضار چرخشی(\lr{flip 
+summon})}}
+این نوع احضار فقط برای چرخش کارت‌هایی که به صورت \lr{DH} بر روی
+ \lr{monster card zone} قرار گرفته‌اند است و با دستور زیر انجام می‌شود:
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+	    flip-summon	
+	\end{latin}
+\end{mybox}
+    اگر کارتی انتخاب نشده باشد و کارت انتخاب شده (\lr{selected}) نداشته 
+    باشیم پیام زیر چاپ شود
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		no card is selected yet
+	\end{latin}
+\end{mybox}
+و در غیر این صورت اگر کارتی که انتخاب شده است  در قسمت \lr{monster card zone} 
+نباشد پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		you can’t change this card position	
+	\end{latin}
+\end{mybox}
+نمایش داده شود و در صورتی که در فاز اصلی 1 یا 2 یا همان \lr{main phase} 
+نباشد پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		you can’t do this action in this phase	
+	\end{latin}
+\end{mybox}
+چاپ شود و در غیر این صورت اگر کارت انتخاب شده در حالت \lr{DH} نباشد یا در 
+همین دور تازه روی زمین گذاشته شده باشد پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+	    you can’t flip summon this card
+	\end{latin}
+\end{mybox}
+    چاپ شود. در غیر این صورت کارت به حالت \lr{OO} در بیاید و پیام زیر چاپ 
+    شود:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+	    flip summoned successfully		
+	\end{latin}
+\end{mybox}
+
+\subsubsection*{{\titr حمله کردن یک کارت هیولا به یک هیولا ی دشمن 
+}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent حمله کردن یک کارت هیولا 
+به یک هیولا ی دشمن
+}}
+    با دستور
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+	    attack <number>	
+	\end{latin}
+\end{mybox}
+که در آن \lr{number} عددی بین 1 تا 5 است کارت انتخاب شده به \lr{monster} ای 
+که در خانه ی \lr{number} قسمت کارت‌های هیولا (\lr{monster card zone}) دشمن 
+است 
+حمله می‌کند. (در صورت ارور ندادن)
+\\
+    اگر کارتی انتخاب نشده باشد و کارت انتخاب شده(selected) نداشته باشیم پیام 
+    زیر چاپ شود
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		no card is selected yet
+	\end{latin}
+\end{mybox}
+و در غیر این صورت اگر کارتی که انتخاب شده است در دست قسمت
+ \lr{monster card zone }نباشد پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		you can’t attack with this card
+	\end{latin}
+\end{mybox}
+نمایش داده شود و در صورتی که در فاز حمله یا همان \lr{battle phase} نباشد 
+پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		you can’t do this action in this phase
+	\end{latin}
+\end{mybox}
+نمایش داده شود و در غیر این صورت در صورتی که این کارت قبلا در این نوبت حمله 
+کرده باشد پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		this card already attacked
+	\end{latin}
+\end{mybox}
+نمایش داده شود و در غیر این صورت در صورتی که در آن خانه ی دشمن کارتی وجود 
+نداشته باشد دستور
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		there is no card to attack here	
+	\end{latin}
+\end{mybox}
+و در غیر این صورت حمله با موفقیت شکل می‌گیرد. حال بر حسب حالت‌های متفاوت 
+پیام‌های درست را چاپ می‌کنیم و عمل \lr{attack} را اتجام می‌دهیم.
+
+\begin{itemize}
+	\item
+	اگر به کارتی از حریف که حالت \lr{OO} (حمله‌ای) داشت حمله کرد؛ اگر قدرت 
+	حمله‌ی کارت بازیکن بیشتر از  کارت \lr{monster} حریف بود \lr{LP} حریف کم 
+	شده و 
+	آن کارت حریف به \lr{graveyard} می‌رود. همچنین پیام زیر چاپ می‌شود:
+	\begin{mybox}[colback=yellow]{پیغام به کاربر}
+		\begin{latin}	
+			your opponent’s monster is destroyed and your opponent receives 
+			<damage> battle damage	
+		\end{latin}
+	\end{mybox}
+	        که damage همان اختلاف قدرت حمله‌ی 2 کارت است.
+	
+	\item
+	اگر به کارتی از حریف که حالت \lr{OO} (حمله ای) دارد که قدرت حمله ی برابر 
+	با کارت انتخاب شده دارد حمله کند پیام زیر چاپ شده و هر 2 کارت نابود 
+	شوند:
+	\begin{mybox}[colback=yellow]{پیغام به کاربر}
+		\begin{latin}	
+		    both you and your opponent monster cards are destroyed and no one 
+		    receives damage	
+		\end{latin}
+	\end{mybox}
+
+	\item
+اگر به کارتی از حریف که حالت \lr{OO} (حمله ای) داشت حمله کرد اگر قدرت حمله ی 
+کارت بازیکن کمتر از  کارت \lr{monster} حریف بود \lr{LP} بازیکن کم شده و 
+کارت 
+بازیکن به \lr{graveyard} می رود و پیام زیر چاپ می‌شود:
+	\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		    Your monster card is destroyed and you received <damage> battle 
+		    damage
+	\end{latin}
+	\end{mybox}
+
+	\item
+اگر به کارتی از حریف که در حالت \lr{DO} بود حمله کرد؛ اگر قدرت دفاع آن کارت 
+حریف کمتر از قدرت حمله ی کارت انتخاب شده‌ی بازیکن بود پیام زیر چاپ شود و آن 
+کارت نابود شود:
+	\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+	    the defense position monster is destroyed	
+	\end{latin}
+	\end{mybox}
+
+	\item
+اگر به کارتی از حریف که در حالت \lr{DO} بود حمله کرد؛ اگر قدرت دفاع آن کارت 
+حریف برابر قدرت حمله‌ی کارت انتخاب شده‌ی بازیکن بود، اتفاقی نیفتاده و پیام 
+زیر چاپ می‌شود:
+	\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+	    no card is destroyed	
+	\end{latin}
+	\end{mybox}
+
+	\item
+اگر به کارتی از حریف که در حالت \lr{DO} بود حمله کرد؛ اگر قدرت دفاع آن کارت 
+حریف بیشتر از قدرت حمله‌ی کارت انتخاب شده ی بازیکن بود پیام زیر چاپ شود و 
+از 
+\lr{LP} بازیکن کم شود:
+	\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+	    no card is destroyed and you received <damage> battle damage	
+	\end{latin}
+	\end{mybox}
+
+	\item
+	در صورتی که به یک کارت \lr{DH} حمله شود قوانین چاپ آن مانند حالت‌های 
+	\lr{DO} است فقط با یک تفاوت که این بار نام آن کارت را در خط قبل چاپ کند 
+	مثلا 
+	اگر \lr{attack} کارت بازیکن برابر \lr{defense} کارت حریف بود پیام
+	\begin{mybox}[colback=yellow]{پیغام به کاربر}
+		\begin{latin}	
+			opponent’s monster card was <monster card name> and no card is 
+			destroyed
+		\end{latin}
+	\end{mybox}
+	چاپ می‌شود.
+\end{itemize}
+
+\subsubsection*{{\titr حمله کردن مستقیم یک کارت هیولا به دشمن (\lr{Direct 
+Attack})}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent حمله کردن مستقیم یک کارت 
+هیولا به دشمن \lr{(Direct Attack}}}
+با دستور
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		attack direct
+	\end{latin}
+\end{mybox}
+    در صورت موفقیت آمیز بودن دستور، به طور مستقیم به دشمن حمله می‌کند و از 
+    \lr{LP} او کم می‌کند.
+\\
+اگر کارتی انتخاب نشده باشد و کارت انتخاب شده(\lr{selected}) نداشته باشیم 
+پیام زیر چاپ شود
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		no card is selected yet
+	\end{latin}
+\end{mybox}
+و در غیر این صورت اگر کارتی که انتخاب شده است در قسمت \lr{monster card zone }
+نباشد پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		you can’t attack with this card
+	\end{latin}
+\end{mybox}
+نمایش داده شود و در صورتی که در فاز حمله یا همان \lr{battle phase} نباشد 
+پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		you can’t do this action in this phase
+	\end{latin}
+\end{mybox}
+نمایش داده شود و در غیر این صورت در صورتی که این کارت قبلا در این نوبت حمله 
+کرده باشد پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		this card already attacked	
+	\end{latin}
+\end{mybox}
+نمایش داده شود و در غیر این صورت اگر حریف کارتی در بخش هیولاهای خود داشته باشد یا به هر دلیلی امکان حمله مستقیم به آن نباشد پیام
+
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		you can’t attack the opponent directly
+	\end{latin}
+\end{mybox}
+و در غیر این صورت
+ به طور موفقیت‌آمیز حمله رخ می‌دهد و از جان 
+حریف کاسته می‌شود و پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		you opponent receives <damage> battale damage	
+	\end{latin}
+\end{mybox}
+نمایش داده می‌شود.
+
+\subsubsection*{{\titr فعال کردن یک کارت جادو (\lr{Activate a spell card})}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent فعال کردن یک کارت 
+جادو(\lr{Activate a spell card})}}
+با دستور
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+	    activate effect	
+	\end{latin}
+\end{mybox}
+اگر کارت انتخاب شده یک \lr{spell} باشد که قبلا \lr{activate} نشده باشد انجام 
+می‌شود
+\\
+    اگر کارتی انتخاب نشده باشد و کارت انتخاب شده (\lr{selected}) نداشته 
+    باشیم پیام زیر چاپ شود:
+
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		no card is selected yet
+	\end{latin}
+\end{mybox}
+و در غیر این صورت اگر کارتی که انتخاب شده است \lr{spell} نباشد پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		activate effect is only for spell cards.	
+	\end{latin}
+\end{mybox}
+نمایش داده شود و در صورتی که در فاز اصلی یا همان \lr{main phase} نباشد پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		you can’t activate an effect on this turn
+	\end{latin}
+\end{mybox}
+نمایش داده شود و در صورتی که این کارت قبلا \lr{activate} شده باشد (در زمین 
+باشد) دستور 
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+\begin{latin}	
+	you have already activated this card
+\end{latin}
+\end{mybox}
+و اگر کارت انتخاب شده در دست باشد و هر 5 خانه‌ی \lr{spell} زمین پر باشند (در 
+صورتی که کارت ما برای فعال شدن نیاز به رفتن روی زمین داشته باشد و مربوط به 
+\lr{Field Zone} نباشد، پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+\begin{latin}	
+	spell card zone is full
+\end{latin}
+\end{mybox}
+نمایش داده شود و اگر آن \lr{spell} شرایطی داشت که نتوانستیم آن را فعال کنیم 
+پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		preparations of this spell are not done yet
+	\end{latin}
+\end{mybox}
+نمایش داده شود و در صورت موفقیت پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		spell activated
+	\end{latin}
+\end{mybox}
+نمایش داده شود و به اولین خانه ای از \lr{spell card zone} که خالی است برده 
+شود. در صورتی که کارت مربوط به \lr{Field Zone} باشد، به \lr{field zone} می 
+رود. اگر کارتی از قبل در \lr{field zone} وجود داشته باشد، کارت قبلی به 
+\lr{graveyard} برفته و کارت جدید به \lr{field zone} می‌رود. و \lr{activate} 
+می‌شود. نوع قرارگیری چنین کارتی \lr{O} است. یعنی به طور کامل توسط دو طرف 
+دیده 
+می‌شود.
+\\
+(در مورد چگونگی اعمال \lr{spell} ها و پیام مربوط به کاری که انجام دادند بعدا 
+گفته می‌شود)
+
+\subsubsection*{{\titr به کمین گذاشتن یک جادو (\lr{Set a spell})}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent به کمین گذاشتن یک جادو 
+(\lr{Set a spell})}}
+با دستور 
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+	    set 	
+	\end{latin}
+\end{mybox}
+میتوان علاوه بر کمین گذاشتن هیولا یک \lr{spell} هم به کمین گذاشت. در قسمت‌های 
+قبلی حالت \lr{monster} بودن را توضیح داده‌ایم. در اینحا همین مسئله را برای 
+\lr{Spell} کارت‌ها توضیح می‌دهیم.
+\\
+اگر کارتی انتخاب نشده باشد و کارت انتخاب شده (\lr{selected}) نداشته باشیم 
+پیام زیر چاپ شود:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		no card is selected yet
+	\end{latin}
+\end{mybox}
+و در غیر این صورت اگر کارتی که انتخاب شده است در دست (\lr{hand}) بازیکن 
+نباشد:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		you can’t set this card	
+	\end{latin}
+\end{mybox}
+در غیر این صورت اگر این کارت \lr{Spell} باشد، در صورتی که در فاز اصلی 1 یا 2 
+نباشد پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		you can’t do this action in this phase
+	\end{latin}
+\end{mybox}
+نمایش داده شود و اما اگر هر 5 خانه ی \lr{spell card zone} پر باشند دستور
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		spell card zone is full
+	\end{latin}
+\end{mybox}
+را نمایش دهید و در آخر اگر \lr{set} کردن او به صورت کامل انجام شد آن کارت را 
+به اولین (از لحاظ شماره ی آن خانه) خانه ای در \lr{spell card zone} که خالی 
+(\lr{Empty}) است ببرید (طبعا نوع قرار گیری در آن خانه نیز \lr{H} است) و 
+دستور
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		set successfully
+	\end{latin}
+\end{mybox}
+را نمایش دهید.
+
+\subsubsection*{{\titr به کمین گذاشتن یک تله}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent به کمین گذاشتن یک تله}}
+پس از انتخاب یک تله، برای به کمین گذاشتنش از دستور زیر استفاده می‌کنیم.
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		set 
+	\end{latin}
+\end{mybox}
+اگر کارتی انتخاب نشده باشد و کارت انتخاب شده(\lr{selected}) نداشته باشیم 
+پیام زیر چاپ شود
+
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		no card is selected yet
+	\end{latin}
+\end{mybox}
+و در غیر این صورت اگر کارتی که انتخاب شده است در دست (\lr{hand}) بازیکن 
+نباشد
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+\begin{latin}	
+	you can’t set this card
+\end{latin}
+\end{mybox}
+در غیر این صورت فرض کنید در این بخش این کارت حتما \lr{trap} است. حال در 
+صورتی که در فاز اصلی 1 یا 2 نباشد پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+\begin{latin}	
+	you can’t do this action in this phase
+\end{latin}
+\end{mybox}
+نمایش داده شود. اگر هر 5 خانه ی \lr{spell card zone} پر باشند دستور
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+\begin{latin}	
+	spell card zone is full	
+\end{latin}
+\end{mybox}
+را نمایش دهید و در آخر اگر \lr{set} کردن او به صورت کامل انجام شد آن کارت را 
+به اولین (از لحاظ شماره ی آن خانه) خانه‌ای در \lr{spell card zone} که خالی 
+(\lr{Empty}) است ببرید (طبعا نوع قرار گیری در آن خانه نیز \lr{H} است) و 
+دستور
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+\begin{latin}	
+	set successfully
+\end{latin}
+\end{mybox}
+را نمایش دهید.
+
+\subsubsection*{{\titr فعال کردن یک تله یا جادو در نوبت حریف}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent فعال کردن یک تله یا جادو 
+در نوبت حریف}}
+همانطور که میدانید برای فعال کردن بعضی از \lr{spell} ها و \lr{trap} ها باید 
+شرایط خاصی رخ دهد که در بخش \lr{spell} و \lr{trap} با آنها آشنا می‌شوید.
+\\
+در زمانی که بعضی شرایط فعال سازی بعضی از \lr{trap} ها یا \lr{spell} ها در 
+نوبت حریف برقرار شد یا کارت \lr{quick spell} در زمین حریف \lr{set} شده باشد 
+باید همان‌جا نوبت به بازیکن حریف داده شود و پیام زیر چاپ شود و حتی صفحه بازی 
+دوباره چاپ شود.
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		now it will be <another player username>’s turn \\
+		<show board>
+	\end{latin}
+\end{mybox}
+و پیغام زیر چاپ شود
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+	    do you want to activate your trap and spell?
+	\end{latin}
+\end{mybox}
+در صورتی که جواب \lr{no} باشد دوباره به نوبت خود بازیکن برگردد و پیام 
+
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		now it will be <the player username>’s turn \\
+		<show board>
+	\end{latin}
+\end{mybox}
+نمایش داده شود و بازی ادامه پیدا کند و در صورتی که \lr{yes}
+چاپ شد در آن نوبت فقط حرکت های مربوط به فعال کردن یک \lr{spell} یا \lr{trap} 
+مجاز است (که شرایط آن برقرار شده است و به طبع آن کارت روی زمین بوده) و در 
+هر حرکت و دستور دیگری انجام شد پیغام زیر چاپ شود.
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		it’s not your turn to play this kind of moves
+	\end{latin}
+\end{mybox}
+و در صورت دیگر که دستور \lr{activate} مربوط به آن کارت (کارت‌ها) صدا زده شد 
+خروجی 
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		spell/trap activated
+	\end{latin}
+\end{mybox}
+چاپ شود.
+
+\subsubsection*{{\titr احضار آیینی (\lr{Ritual Summon})}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent احضار آیینی: (\lr{Ritual 
+Summon})}}
+در ابتدا به این نکته اشاره کنم که هنگام فعال کردن یک \lr{ritual spell} اگر 
+هیچ \lr{ritual} کارتی در دست برای وارد کردن به بازی وجود نداشت یا مجموع 
+سطوح 
+هیچ زیر مجموعه‌ای از کارت‌های زمین با سطح یک کارت \lr{ritual monster} ای که 
+در 
+دست قرار دارد برابر نمی‌شد پیغام خطای زیر به جای پیغام موفقیت در فعال شدن 
+جادوی آن کارت نمایش داده شود و کارت همچنان به شکل فعال نشده باقی بماند.
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		there is no way you could ritual summon a monster
+	\end{latin}
+\end{mybox}
+در صورت فعال شدن یک \lr{ritual spell} یا به هر طریقی که یک \lr{ritual summon} 
+صورت بگیرد، تا زمانی که کارت مربوطه به درستی روی زمین قرار داده نشده، اگر 
+هر دستور دیگری وارد شود، باید پیام زیر نوشته شود:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+	    you should ritual summon right now	
+	\end{latin}
+\end{mybox}
+و در صورتی که کارت درست (\lr{ritual monster}) انتخاب شد و دستور \lr{summon} 
+زده شد باید از کاربر آدرس کارت‌هایی که قرار است برای ورود \lr{Ritual} قربانی 
+شوند، پرسیده شود. اگر سطح آن‌ کارت‌ها متناسب با کارتی که قرار است وارد زمین 
+بشود نبود، باید پیام خطای زیر چاپ شود:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		selected monsters levels don’t match with ritual monster
+	\end{latin}
+\end{mybox}
+و دوباره منتظر انتخاب ترتیب درستی از کارت‌ها باشیم. در مورد \lr{Cancel} کردن 
+کل این بخش در قسمت مربوطه توضیح داده شده است.
+\\
+در صورت درست بودن \lr{ritual summon} ابتدا حالت آن کارت (\lr{attacking} یا 
+\lr{defensive}) بودن آن پرسیده شده و به یکی از 2 حالت \lr{OO} یا \lr{DO} 
+گذاشته می‌شود و سپس پیام:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+	    summoned successfully	
+	\end{latin}
+\end{mybox}
+    نمایش داده شود و کارهای مربوطه انجام شود.
+
+\subsubsection*{{\titr احضار خاص (\lr{Special Summon})}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent احضار خاص (\lr{Special 
+Summon})}}
+بعضی از کارت‌های \lr{monster effect} یا کارت‌های دیگر ویژگی دارند که می‌توان 
+با فعال کردن آنها \lr{special summon} انجام داد و یک هیولای دیگر را در آن 
+دست 
+\lr{summon} کرد. در صورتی که کارت هیولایی در دست بازیکن وجود نداشت، امکان 
+فعالسازی آن \lr{spell} وجود نخواهد داشت و پیام 
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		there is no way you could special summon a monster
+	\end{latin}
+\end{mybox}
+چاپ می‌شود.
+\\
+مانند بخش \lr{ritual summon} بعد از فعال کردن آن کارت باید حتما یک هیولا 
+\lr{summon} شود و دستورات دیگر انجام نمی‌شوند و در صورت نوشتن دستورات دیگر 
+پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		you should special summon right now
+	\end{latin}
+\end{mybox}
+نوشته شود.
+
+\subsubsection*{{\titr نشان دادن گورستان}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent نشان دادن 
+گورستان}}
+با دستور 
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		show graveyard
+	\end{latin}
+\end{mybox}
+لیست تمامی کارت‌های درون \lr{graveyard} نوشته می‌شود و طریقه‌ی نمایش آن هم به 
+صورت زیر است:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		1.  <card name>:<card description>\\
+		2. <card name>:<card description>\\
+		...
+	\end{latin}
+\end{mybox}
+ترتیب نمایش کارت‌ها از قدیمی‌ترین کارت ارسال  است. در صورت خالی بودن گورستان 
+پیغام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		graveyard empty
+	\end{latin}
+\end{mybox}
+نمایش داده شود. با دستور
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		back
+	\end{latin}
+\end{mybox}
+به بازی باز می‌گردیم.
+
+\subsubsection*{{\titr نمایش کارت‌ها}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent نمایش  کارت‌ها}}
+با دستور 
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		card show -{}-selected
+	\end{latin}
+\end{mybox}
+در صورتی که کارتی انتخاب شده بود اطلاعات آن کارت که در بخش  های قبل گیم‌پلی گفتیم به همان فرمت نمایش داده شود.   اگر کارتی \lr{select} نشده 
+    بود پیام
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		no card is selected yet
+	\end{latin}
+\end{mybox}
+نمایش داده شود.
+
+در صورتی که کارت انتخاب شده، کارت حریف بود و به پشت قرار داشت پیام
+ 
+ 
+ \begin{mybox}[colback=yellow]{پیغام به کاربر}
+ 	\begin{latin}	
+ 	card is not visible
+ 	\end{latin}
+ \end{mybox}
+نمایش داده شود.
+\\
+
+
+\subsubsection*{{\titr زنجیر (\lr{Chain})}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent زنجیر (\lr{Chain})}}
+با زنجیر در مقررات بازی آشنا شدید. به طور خلاصه Chain به حالتی گفته می‌شود که شما و حریف به دلیل وجود Trap کارت، به طور همزمان در یک نوبت چندین کارت را فعال کنید. مثلا شما یک کارت را فعال کرده و حریف شما با کارت دیگری نظیر \lr{Magic Jammer} افکت کارت شما را باطل کند. در تمام دستورات بالا اگر فعال‌سازی زنجیری باعث شد که نوبت 
+به حریف برود و زنجیری فعال کند، افکت‌های کارت‌هایی که به صورت زنجیری در حال استفاده هستند را در یک پشته ذخیره می‌کنید و سپس از بالای پشته شروع به اعمال آن‌ها می‌کنید. یعنی Action کارتی که دیرتر از همه فعال شده است، زودتر از بقیه اعمال می‌شود.
+
+توجه کنید در زمینه امکان فعال شدن زنجیره‌ای، مسئله‌ای به نام Speed هم وجود دارد. پیاده‌سازی درست Speed نمره امتیازی دارد و می‌توانید در حالت ساده، Speed همه کارت‌ها را یکسان در نظر بگیرید.
+
+
+
+\subsubsection*{{\titr پاداش برنده شدن}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent پاداش برنده شدن}}
+
+در صورتی که بازی با یک \lr{Round} برگزار شده باشد، جایزه برنده شدن در آن $1000$ امتیاز و مقداری پول است. مقدار پولی که فرد برنده می‌شود، به صورت زیر محاسبه می‌شود:
+$$1000 + LP_{winner}$$
+
+که $LP_{winner}$ مقدار \lr{Life Point} است که در انتهای بازی برای برنده باقی مانده است. بازنده نیز $100$ واحد پول برنده می‌شود.
+
+در صورتی که بازی با سه \lr{Round} انجام شده باشد، تمامی امتیازات گفته شده در قسمت قبل در انتها که برنده نهایی مشخص شد، محاسه می‌شود. برای برنده نهایی پول به صورت زیر خواهد بود:
+$$3000 + 3 \times \max({LP_{winner}})$$
+و منظور از
+ $\max({LP_{winner}})$
+  بیش‌ترین مقدار  \lr{Life Point} در سه یا دو بازی‌های انجام شده است. بازنده نیز $300$ واحد پول برنده می‌شود. امتیاز اضافه شده به برنده هم $3000$ خواهد بود.
+
+ توجه کنید که بازی‌هایی که با سه \lr{Round} برگزار می‌شوند در صورتی که یک شرکت‌کننده دو دور اول و دوم را برنده شود، بدون انجام بازی سوم به نفع شرکت کننده اول به پایان می‌رسد.
+
+\subsubsection*{{\titr نکات کلی}}
+\addcontentsline{toc}{subsubsection}{{\fehrestContent نکات کلی}}
+دقت کنید در هر کدام از دستوراتی که در چند مرحله از کاربر ورودی گرفته می‌شود 
+با زدن دستور \lr{cancel} کل دستور متوقف می‌شود. (مثلا شماره خانه‌ها برای 
+\lr{tribute summon})
+\\
+    هر زمان دستور 
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+	    surrender 	
+	\end{latin}
+\end{mybox}
+به عنوان ورودی قرار گرفت بازیکن، از آن بازی انصراف داده و بازنده می‌شود. و 
+طبق قوانین \lr{win} و \lr{lose} و پیغام‌های آن که می‌گوییم یک باخت برای 
+بازیکن 
+تسلیم شده ثبت می‌شود.
+\\
+    در صورتی که فردی برنده بازی شد:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		<username> won the game and the score is:  <score1>-<score2>
+	\end{latin}
+\end{mybox}
+نمایش داده شود و در صورتی که بازیکنی کل \lr{match} (متشکل از چند بازی پشت سر 
+هم) را برد علاوه بر پیام بالا پیام زیر نیز نمایش داده شود:
+\begin{mybox}[colback=yellow]{پیغام به کاربر}
+	\begin{latin}	
+		<username> won the whole match with score: <score1>-<score2>
+	\end{latin}
+\end{mybox}
+
+\subsection*{{\titr هوش مصنوعی}}
+\addcontentsline{toc}{subsection}{{\fehrestContent هوش مصنوعی}}
+یک ویژگی مهم بازی‌های رایانه‌ای، استفاده از هوش مصنوعی در آن‌هاست. این بازی هم 
+از این قاعده مستثنی نیست و برای آن به یک هوش مصنوعی نیاز داریم؛ البته 
+لزومی 
+ندارد که این هوش مصنوعی پیچیده و پیشرفته باشد و کافیست یک هوش مصنوعی بسیار 
+ساده و حداقلی پیاده‌سازی کنید که توانایی انجام بازی را داشته باشد و در هر 
+نوبت، اگر امکانش وجود داشت کارتی را به زمین بازی اضافه کند و با کارت‌های 
+زمین، حرکات مناسب را انجام دهد.
+\\
+یک استراتژی پیشنهادی برای پیاده‌سازی هوش مصنوعی در زیر آمده است اما 
+پیاده‌سازی آن اجباری نیست و صرفا به عنوان یک پیشنهاد است. شما می‌توانید این 
+استراتژی را بهبود دهید و استراتژی‌های خودتان را پیاده سازی کنید تا هوش 
+مصنوعی قدرتمند‌تری داشته باشید! 
+\\
+توجه کنید که در زمان تحویل پروژه، به هوش‌های مصنوعی خوب نمره امتیازی تعلق 
+خواهد گرفت.
+\\
+استراتژی پیشنهادی:
+\begin{itemize}
+	\item 
+	هر کارت تله را در صورت امکان به زمین اضافه کند.
+	
+	\item
+	هر کارت تله یا اسپل که قابلیت اجرایی دارد را به شرطی که به نفعش باشد و 
+	یا ضرر نکند اجرا کند.
+	\begin{itemize}
+		\item این که چه زمانی این حرکت به نفعش است را از دیدگاه‌های گوناگون 
+		می‌توان بررسی کرد. به عنوان مثال می‌توانید این که مقدار علامت‌دار اختلاف 
+		امتیاز 
+		کارت‌هایش و کارت‌های حریف بیشتر شود را نفع در نظر بگیرید؛ به شرط 
+		این‌که با 
+		فعال‌سازی آن کارت، نبازد.
+		\item
+		در صورت نیاز به فعال کردن تله در نوبت حریف هم به این بند توجه شود.
+	\end{itemize}
+
+	\item
+	همیشه از میان هیولا‌ها، آن را که امتیاز بیشتری دارد و توان احضارش را دارد 
+	احضار کند. 
+	\begin{itemize}
+		\item 
+		اگر آن هیولا به قربانی نیاز داشت، کارت‌هایی را در زمین که کمترین 
+		امتیاز را دارند قربانی کند.
+	\end{itemize}
+	
+	\item
+	برای حمله، به ترتیب از هیولایی که بیشترین مقدار حمله را دارد به کارت‌هایی 
+	که رو به بالا (\lr{face up}) هستند در صورت پیروزی (کمتر بودن امتیاز 
+	آن‌ها از 
+	مقدار حمله آن کارت) حمله کند و سپس به همین ترتیب به کارت‌هایی که رو به 
+	پایین 
+	(\lr{face down}) هستند حمله کند.
+\end{itemize}
+
+\subsection*{{\titr حالت تقلب / دیباگ}}
+\addcontentsline{toc}{subsection}{{\fehrestContent حالت تقلب / دیباگ}}
+احتمالا در بازی های زیادی دیدید (شنیدید) که یک سری کدهای تقلب وجود دارد که 
+بازی را از حالت عادی خارج می‌کند، نمونه ای از این کد ها مثلا در بازی 
+\lr{GTA} 
+وجود دارد، می‌تواند باعث شود تمامی اسلحه ها برای بازیکن در دسترس باشد، یا 
+در 
+مثال دیگر می‌تواند باعث شوند بازیکن هیچگاه جان خودش را از دست ندهد.
+\\
+در پروژه شما نیز این قابلیت باید پیاده‌سازی شود. در این حالت پروژه شما باید 
+بتواند کارهایی که در حالت عادی نمی‌توانید انجام دهد را  پیاده‌سازی کند، 
+نمونه‌ای از این کار ها را می‌توان افزایش پول به مقدار دلخواه، برداشت کارت 
+بیش 
+از حد مجاز، جلوگیری از بین رفتن کارت‌ها در طی بازی و … باشد.
+\\
+در اینجا نمونه‌ای از دستورات پیشنهادی را برای شما آورده‌ایم، شما نیز می‌توانید 
+خودتان دستورات دیگری برای این حالت توسعه دهنده در زمینه‌های دیگر استفاده 
+کنید. 
+\\
+افزایش پول به مقدار دلخواه:
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		increase -{}-money <amount>
+	\end{latin}
+\end{mybox}
+انتخاب کارت اضافه‌تر از حد مجاز:
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		select -{}-hand <card-name> -{}-force
+	\end{latin}
+\end{mybox}
+    افزایش جان در هنگام بازی:
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		increase -{}-LP <amount>
+	\end{latin}
+\end{mybox}
+    بردن بازی:
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+	duel set-winner <nickname>
+	\end{latin}
+\end{mybox}
+شما نیز می‌توانید به سلیقه خودتان دستورات تقلب‌های دیگری مانند، از بین بردن 
+نوبت حریف، افزایش و کاهش قدرت‌های هیولاها، تغییرات در گورستان و … نیز اضافه 
+کنید.
+
+\subsection*{{\titr ایمپورت و اکسپورت دیتابیس }}
+
+
+
+یکی از کارهای دیگری که پروژه شما باید قابلیتش را داشته باشد، توانایی JSON کردن کارت شماست، در واقع با دادن یک سری دستورات پروژه شما باید قادر باشد که کارت‌های شما را (با تمامی اطلاعاتشان) به صورت جیسون در یک فایل بریزد (به عبارتی دیگر serialize کند)، و بتواند آن را از فایل‌ها نیز بخواند (به عبارتی دیگر deserialize کند).
+
+ایمپورت کردن یک کارت:
+
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		import card [card name]
+	\end{latin}
+\end{mybox}
+
+اکسپورت کردن کارت:
+\begin{mybox}[colback=yellow]{دستور}
+	\begin{latin}	
+		export card [card name]
+		
+	\end{latin}
+\end{mybox}
+
+توجه داشته باشید که قسمت Import و Export یک منوی جداگانه است که از منوی اصلی قابل دسترسی است.
+
+\subsection*{{\titr معرفی کارت‌ها }}
+
+معرفی کارت‌هایی که باید پیاده‌سازی کنید در ضمیمه این مستند انجام شده است.
+
+
+
+\end{document}
+
+
+
+
+
+
+
